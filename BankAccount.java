@@ -61,6 +61,7 @@ public class BankAccount {
 
         if (collectAccountNumber != accountNumber) {
             System.out.println("INCORRECT CREDENTIALS");
+            return this.accountBalance;
         }
         else{
             System.out.println("WELCOME " + customerName
@@ -87,9 +88,15 @@ public class BankAccount {
         System.out.println("ENTER AMOUNT TO DEPOSIT: ");
         double amountToDeposit = scannerDeposit.nextDouble();
         double newAccountBalance = (amountToDeposit + accountBalance);
+        if(amountToDeposit > 0){
         System.out.println("#" + amountToDeposit + " Has been Credited to your Account, " + customerName);
         System.out.println("YOUR NEW ACCOUNT BALANCE IS: #" + newAccountBalance);
         return this.accountBalance = newAccountBalance;
+    }
+        else {
+            System.out.println("INVALID AMOUNT!");
+        return accountBalance;
+        }
     }
 
     public void customerInformation(){
